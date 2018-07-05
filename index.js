@@ -8,11 +8,12 @@ import AWSS3 from './lib/aws-s3.js';
 console.log(`Configuration: ${JSON.stringify(config)}`);
 
 function main() {
+    const url = 'www.cloudanix.com';
     const url2png = new URL2PNG(config);
 
-    const awsS3 = new AWSS3(config.s3.auth);
+    const awsS3 = new AWSS3(config.s3);
 
-    const url = url2png.generateScreenshot('www.cloudanix.com')
+    const url = url2png.generateScreenshot(url)
         .then(result => {
             console.log(`url2png success: ${result}`);
 
@@ -30,7 +31,7 @@ function main() {
             })
         })
         .catch(error => {
-            console.log(`failed to generate png for url: ${error}`);
+            console.log(`failed to generate screenshot from url2png and upload to S3 for ${url} : ${error}`);
         });
 }
 
