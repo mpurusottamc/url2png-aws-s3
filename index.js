@@ -13,7 +13,7 @@ function main() {
 
     const awsS3 = new AWSS3(config.s3);
 
-    const url = url2png.generateScreenshot(url)
+    url2png.generateScreenshot(url)
         .then(result => {
             console.log(`url2png success: ${result}`);
 
@@ -31,7 +31,7 @@ function main() {
             })
         })
         .catch(error => {
-            console.log(`failed to generate screenshot from url2png and upload to S3 for ${url} : ${error}`);
+            console.log(`failed to generate screenshot from url2png and upload to S3 for ${url} : ${error} - ${error.stack}`);
         });
 }
 
