@@ -18,7 +18,7 @@
 	"license": "Apache-2.0",
 	"dependencies": {
 		"@mpurusottamc/url2png": "^6.0.3",
-		"aws-sdk": "^2.654.0",
+		"aws-sdk": "^2.814.0",
 		"config": "^3.3.1",
 		"got": "^10.7.0"
 	},
